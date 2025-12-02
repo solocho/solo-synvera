@@ -13,6 +13,9 @@ export interface Project {
   category: string;
   description: string;
   image: string;
+  challenge?: string;
+  solution?: string;
+  result?: string;
 }
 
 export interface SkillCategory {

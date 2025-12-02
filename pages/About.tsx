@@ -1,38 +1,38 @@
 import React from 'react';
-import { SKILL_CATEGORIES, CORE_VALUES } from '../constants';
-import { BookOpen, User, Zap } from 'lucide-react';
+import { SKILL_CATEGORIES, CORE_VALUES, CERTIFICATES, IMAGES } from '../constants';
+import { BookOpen, User, Zap, Award } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <div className="fade-in pt-24 pb-20">
+    <div className="fade-in pt-24 pb-20 dark:bg-slate-900 transition-colors duration-300">
       {/* Bio Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
            <div className="relative order-2 lg:order-1">
-             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-200 shadow-xl">
+             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl">
                 <img 
-                  src="https://picsum.photos/800/1000?random=20" 
+                  src={IMAGES.bio}
                   alt="Solomon Working" 
                   className="w-full h-full object-cover"
                 />
              </div>
-             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white p-6 rounded-lg shadow-xl hidden md:block z-10">
+             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white dark:bg-navy-800 p-6 rounded-lg shadow-xl hidden md:block z-10">
                 <div className="h-full border-2 border-gold-500 rounded flex flex-col items-center justify-center text-center">
-                  <span className="text-4xl font-heading font-bold text-navy-900">20</span>
-                  <span className="text-sm text-slate-500 uppercase tracking-wide">Years Old</span>
+                  <span className="text-4xl font-heading font-bold text-navy-900 dark:text-white">20</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide">Years Old</span>
                   <span className="w-8 h-1 bg-gold-500 mt-2 mb-2"></span>
-                  <span className="text-xs font-bold text-navy-900">Kenyan Talent</span>
+                  <span className="text-xs font-bold text-navy-900 dark:text-white">Kenyan Talent</span>
                 </div>
              </div>
              {/* Decorative dot pattern */}
-             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[url('https://www.transparenttextures.com/patterns/dot-pattern.png')] opacity-30 -z-10"></div>
+             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[url('https://www.transparenttextures.com/patterns/dot-pattern.png')] opacity-30 -z-10 dark:opacity-10"></div>
            </div>
 
            <div className="order-1 lg:order-2">
               <h4 className="text-gold-600 font-bold uppercase tracking-widest text-sm mb-2">About Solomon</h4>
-              <h2 className="text-4xl font-heading font-bold text-navy-900 mb-8">Discipline, Tech, and <br/>Efficient Solutions</h2>
+              <h2 className="text-4xl font-heading font-bold text-navy-900 dark:text-white mb-8">Discipline, Tech, and <br/>Efficient Solutions</h2>
               
-              <div className="prose prose-lg text-slate-600 mb-8">
+              <div className="prose prose-lg text-slate-600 dark:text-slate-300 mb-8">
                 <p>
                   My name is <strong>Solomon Chome Mumba</strong>, a 20-year-old Virtual Assistant from Nairobi, Kenya. 
                   I combine youthful energy with professional discipline to help global clients streamline their operations and scale their businesses.
@@ -50,12 +50,12 @@ const About: React.FC = () => {
 
               <div className="space-y-6">
                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-12 h-12 bg-navy-50 rounded-full flex items-center justify-center text-navy-900 mr-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-navy-50 dark:bg-slate-800 rounded-full flex items-center justify-center text-navy-900 dark:text-white mr-4">
                       <BookOpen size={20} />
                     </div>
                     <div>
-                      <h5 className="font-bold text-navy-900 text-lg">Education</h5>
-                      <ul className="text-sm text-slate-600 mt-1 space-y-1">
+                      <h5 className="font-bold text-navy-900 dark:text-white text-lg">Education</h5>
+                      <ul className="text-sm text-slate-600 dark:text-slate-400 mt-1 space-y-1">
                         <li>• Bachelor in Business Information Technology – Cooperative University of Kenya</li>
                         <li>• Virtual Assistant Training – ALX Africa</li>
                       </ul>
@@ -63,12 +63,12 @@ const About: React.FC = () => {
                  </div>
                  
                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gold-50 rounded-full flex items-center justify-center text-gold-600 mr-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gold-50 dark:bg-slate-800 rounded-full flex items-center justify-center text-gold-600 mr-4">
                       <User size={20} />
                     </div>
                     <div>
-                      <h5 className="font-bold text-navy-900 text-lg">Personality</h5>
-                      <p className="text-sm text-slate-600 mt-1">
+                      <h5 className="font-bold text-navy-900 dark:text-white text-lg">Personality</h5>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
                         Disciplined, Organized, Fast Learner, Tech-Savvy, Problem Solver.
                       </p>
                     </div>
@@ -78,8 +78,68 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <section className="bg-slate-50 dark:bg-navy-950 py-24 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-heading font-bold text-navy-900 dark:text-white">Technical & Professional Skills</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto">A comprehensive toolkit designed to handle your business needs efficiently.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {SKILL_CATEGORIES.map((category, idx) => (
+              <div key={idx} className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-gold-500">
+                <h4 className="font-bold text-lg text-navy-900 dark:text-white mb-6 flex items-center">
+                  <Zap className="w-5 h-5 text-gold-500 mr-2" />
+                  {category.title}
+                </h4>
+                <ul className="space-y-3">
+                  {category.skills.map((skill, sIdx) => (
+                    <li key={sIdx} className="flex items-center text-sm text-slate-600 dark:text-slate-300">
+                      <span className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full mr-3"></span>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+             <h3 className="text-3xl font-heading font-bold text-navy-900 dark:text-white">Certifications & Education</h3>
+             <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto">Verified credentials that demonstrate my commitment to professional growth.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {CERTIFICATES.map((cert) => (
+              <div key={cert.id} className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+                 {/* Decorative background element */}
+                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Award size={100} className="text-navy-900 dark:text-white" />
+                 </div>
+                 
+                 <div className="relative z-10">
+                   <div className="flex items-center space-x-2 text-gold-600 mb-4">
+                     <Award size={20} />
+                     <span className="text-xs font-bold uppercase tracking-wider">{cert.date}</span>
+                   </div>
+                   <h4 className="text-xl font-bold text-navy-900 dark:text-white mb-2">{cert.title}</h4>
+                   <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-4">{cert.issuer}</p>
+                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{cert.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Core Values Section */}
-      <section className="bg-navy-900 py-24 text-white">
+      <section className="bg-navy-900 dark:bg-black py-24 text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h3 className="text-3xl font-heading font-bold mb-4">My Core Values</h3>
@@ -94,35 +154,6 @@ const About: React.FC = () => {
                 </div>
                 <h4 className="text-xl font-bold mb-3">{value.title}</h4>
                 <p className="text-slate-400 text-sm leading-relaxed">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="bg-slate-50 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-heading font-bold text-navy-900">Technical & Professional Skills</h3>
-            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">A comprehensive toolkit designed to handle your business needs efficiently.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {SKILL_CATEGORIES.map((category, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border-t-4 border-gold-500">
-                <h4 className="font-bold text-lg text-navy-900 mb-6 flex items-center">
-                  <Zap className="w-5 h-5 text-gold-500 mr-2" />
-                  {category.title}
-                </h4>
-                <ul className="space-y-3">
-                  {category.skills.map((skill, sIdx) => (
-                    <li key={sIdx} className="flex items-center text-sm text-slate-600">
-                      <span className="w-1.5 h-1.5 bg-slate-300 rounded-full mr-3"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>

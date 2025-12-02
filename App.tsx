@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -20,7 +21,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen font-sans text-slate-900">
+      <div className="flex flex-col min-h-screen font-sans text-slate-900 dark:text-slate-200 bg-white dark:bg-slate-900 transition-colors duration-300">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <ChatBot />
       </div>
     </Router>
   );
