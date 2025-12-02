@@ -22,9 +22,6 @@ const ChatBot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Initialize Gemini
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -75,6 +72,8 @@ const ChatBot: React.FC = () => {
     setIsLoading(true);
 
     try {
+      // Initialize Gemini only when needed to prevent app crash if key is missing on load
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const systemInstruction = generateSystemPrompt();
       
       const response = await ai.models.generateContent({
@@ -92,7 +91,7 @@ const ChatBot: React.FC = () => {
       setMessages(prev => [...prev, { 
         id: (Date.now() + 1).toString(), 
         role: 'model', 
-        text: "I'm currently having trouble connecting to the server. Please try again later or contact Solomon directly via email." 
+        text: "I'm currently having trouble connecting to the server. Please check if the API Key is configured correctly or contact Solomon directly." 
       }]);
     } finally {
       setIsLoading(false);

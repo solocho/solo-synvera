@@ -23,13 +23,13 @@ import { Service, Project, SkillCategory, Testimonial, SocialLink } from './type
 
 // ==================================================================================
 // GLOBAL IMAGES CONFIGURATION
-// Updated to fix loading issues. 
-// Paths are now relative and spaces are URL encoded (%20).
+// Updated paths to be absolute (starting with /) to ensure they load correctly
+// on sub-pages like /portfolio or /about when deployed to Netlify.
 // ==================================================================================
 export const IMAGES = {
-  hero: "me.jpg",      // Used on Home Page (Hero)
-  process: "me.jpg",   // Used on Home Page (Workflow/Process)
-  bio: "me.jpg",       // Used on About Page
+  hero: "/me.jpg",      // Used on Home Page (Hero)
+  process: "/me.jpg",   // Used on Home Page (Workflow/Process)
+  bio: "/me.jpg",       // Used on About Page
 };
 
 export const PERSONAL_INFO = {
@@ -146,7 +146,7 @@ export const SERVICES: Service[] = [
 
 // ==================================================================================
 // PORTFOLIO PROJECTS
-// Images updated with URL encoding (%20 for spaces) and relative paths.
+// Images use absolute paths (starting with /) and %20 for spaces.
 // ==================================================================================
 export const PORTFOLIO: Project[] = [
   {
@@ -154,7 +154,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Inbox Zero Automation',
     category: 'Email Management',
     description: 'Implemented specific filters and labels for a CEO, reducing daily email time by 40% and ensuring critical communications were never missed.',
-    image: 'email%20management.jpg',
+    image: '/email%20management.jpg',
     challenge: "The client was overwhelmed with 200+ daily emails, often missing critical investor communications amidst the noise.",
     solution: "Created a tiered filtering system in Gmail, implemented canned responses for FAQs, and unsubscribed from 50+ newsletters.",
     result: "Achieved 'Inbox Zero' within two weeks and reduced daily email management time from 3 hours to 45 minutes."
@@ -164,7 +164,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Social Media Content Calendar',
     category: 'Social Media',
     description: 'Designed and managed a 3-month content calendar using Notion and Canva for a retail brand, increasing engagement by 25%.',
-    image: 'social%20media.jpg',
+    image: '/social%20media.jpg',
     challenge: "The brand lacked consistency, posting sporadically with no cohesive visual identity, leading to stagnant growth.",
     solution: "Developed a Notion-based content calendar and designed 30+ reusable Canva templates aligned with brand guidelines.",
     result: "Established a consistent 5-day posting schedule, resulting in a 25% increase in engagement and 15% follower growth."
@@ -174,7 +174,7 @@ export const PORTFOLIO: Project[] = [
     title: 'CRM Data Migration',
     category: 'Data Management',
     description: 'Cleaned and migrated over 2,000 client records into a new CRM system with 100% accuracy, enabling better customer tracking.',
-    image: 'data%20management.jpg',
+    image: '/data%20management.jpg',
     challenge: "Client data was scattered across multiple Excel sheets with duplicate entries and inconsistent formatting.",
     solution: "Audited existing data, removed duplicates using advanced Excel formulas, and imported clean data into HubSpot CRM.",
     result: "Successfully migrated 2,000+ records with 100% accuracy, enabling the sales team to track leads effectively."
@@ -184,7 +184,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Customer Support Portal',
     category: 'Customer Support',
     description: 'Set up a ticketing system and FAQ knowledge base, improving response times by 2 hours and increasing customer satisfaction scores.',
-    image: 'customer%20support.jpg',
+    image: '/customer%20support.jpg',
     challenge: "Customer inquiries were being lost in a shared inbox, leading to delayed responses and frustrated clients.",
     solution: "Implemented a ticketing system (Zendesk) and wrote 20+ comprehensive articles for a self-service FAQ help center.",
     result: "Reduced average first response time by 2 hours and decreased support ticket volume by 30% via self-service."
@@ -194,7 +194,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Executive Travel Itinerary',
     category: 'Travel Planning',
     description: 'Coordinated complex multi-city business trip logistics for a creative director, including visas, flights, and accommodation within a strict budget.',
-    image: 'travel%20planning.jpg',
+    image: '/travel%20planning.jpg',
     challenge: "The client needed to visit 4 countries in 10 days for meetings, with complex visa requirements and tight connection times.",
     solution: "Researched visa protocols, booked optimal flight paths to minimize layovers, and secured accommodation near meeting venues.",
     result: "Delivered a seamless, digital itinerary. The client made all meetings on time with zero logistical hiccups."
@@ -204,7 +204,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Market Competitor Analysis',
     category: 'Research',
     description: 'Conducted comprehensive competitor research for a fintech startup, delivering a 20-page insight report used for Series A pitch deck.',
-    image: 'research.jpg',
+    image: '/research.jpg',
     challenge: "The startup needed data-driven insights on 5 key competitors to validate their unique value proposition for investors.",
     solution: "Conducted deep-dive research into competitor pricing, feature sets, and customer reviews, synthesizing findings into a report.",
     result: "Provided a 20-page strategic report that was directly referenced in the successful Series A funding pitch deck."
@@ -214,7 +214,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Virtual Summit Coordination',
     category: 'Event Management',
     description: 'Managed speaker coordination, scheduling, and live technical support for a 3-day virtual summit with 500+ attendees.',
-    image: 'event%20management.jpg',
+    image: '/event%20management.jpg',
     challenge: "Coordinating 15 speakers across different time zones and ensuring a glitch-free live experience for 500+ attendees.",
     solution: "Created a master run-of-show, conducted tech checks with all speakers, and managed the Zoom waiting room and chat.",
     result: "The event ran flawlessly on schedule, receiving a 9.5/10 attendee satisfaction rating."
@@ -224,7 +224,7 @@ export const PORTFOLIO: Project[] = [
     title: 'E-commerce Product Upload',
     category: 'Data Entry',
     description: 'Uploaded and optimized 500+ product listings for a Shopify store, including SEO-friendly titles and alt text descriptions.',
-    image: 'data%20entry.jpg',
+    image: '/data%20entry.jpg',
     challenge: "The store owner had a catalog of 500 new items but no time to upload images, descriptions, and pricing.",
     solution: "Bulk-edited product images for web optimization, wrote SEO-friendly descriptions, and categorized items correctly in Shopify.",
     result: "Launched the new collection on time, leading to a record-breaking sales weekend for the client."
@@ -234,7 +234,7 @@ export const PORTFOLIO: Project[] = [
     title: 'Real Estate Lead Qualification',
     category: 'Lead Generation',
     description: 'Filtered and qualified 1,000+ incoming real estate leads, setting up appointments for top-tier agents and increasing conversion by 15%.',
-    image: 'lead%20generation.jpg',
+    image: '/lead%20generation.jpg',
     challenge: "Agents were wasting hours calling low-quality leads, reducing time spent on actual closings.",
     solution: "Implemented a pre-qualification script and CRM tagging system to filter leads before passing them to agents.",
     result: "Filtered 1,000+ leads, saving agents 10+ hours per week and increasing the appointment-to-closing conversion rate by 15%."
